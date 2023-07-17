@@ -1,0 +1,210 @@
+body {
+    font-family: 'Segoe UI';
+    background-color: #e8f6ff;
+}
+
+.navbar a {
+    color: white !important;
+    font-weight: 300;
+}
+.navbar a:hover {
+    text-decoration: underline !important;
+}
+
+.aside-content a {
+    text-decoration: none !important;
+    color: white !important;
+    font-weight: 300;
+}
+.aside-content a:hover {
+    opacity: 70%;
+}
+
+.pagination ul {
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.page-link {
+    color: black;
+}
+.page-link:hover {
+    color: #e98924;
+    opacity: 100%;
+}
+
+.page-item.active span {
+    background-color:#171a2d;
+    border-color:#171a2d;
+}
+
+header {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-top: 3rem;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    
+    font-size: 33px;
+    font-weight: 300;
+}
+
+
+/* Navbar stuff */
+.offcanvas {
+    background-color: #171a2d !important;
+}
+.navbar-toggler {
+    background-color: #171a2d !important;
+    border-color: #ececec !important;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(202, 202, 202, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.btn.btn-primary {
+    background-color: #e55824 !important;
+    border-color: #e55824 !important;
+    color: white !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: #ce4e20 !important;
+    color: white !important;
+    opacity: 100% !important;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* Aside for categories */
+.aside {
+    width: auto;
+    height: auto;
+    
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    border-radius: 25px;
+    background-color: #171a2d;
+    color: white;
+    font-size: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.aside-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+    font-family: 'Courier New';
+}
+.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    margin-bottom: 20px;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+}
+
+.post {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #ececec;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 15px;
+    padding: 10px;   
+}
+.post:hover {
+    opacity: 70%;   
+}
+
+.postCategory {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.category {
+    justify-content: flex-start;
+    text-align: center;
+
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #171a2d;
+    color: rgb(223, 223, 223);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+
+/* For smaller screens */
+@media screen and (max-width: 700px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        font-size: large;
+    }
+    
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    .aside h1 {
+        font-size: 13px;
+    }
+
+    .aside {
+        font-size: 14px;
+        box-shadow: 5px 5px #6d8ca1;
+    }
+    .aside-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+}

@@ -1,0 +1,139 @@
+body {
+    font-family: 'Segoe UI';
+    background-color: #e8f6ff;
+}
+
+li, a {
+    text-decoration: none !important ;
+    color: white !important; 
+    font-weight: 300 !important;
+}
+
+li:hover {
+    text-decoration: underline !important ;
+    color: rgb(196, 196, 196) !important;
+    opacity: 90% !important;
+}
+
+a:hover {
+    text-decoration: underline !important ;
+    color: rgb(196, 196, 196) !important;
+    opacity: 90% !important;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 5rem;
+    
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* Navbar stuff */
+.offcanvas {
+    background-color: #171a2d !important;
+}
+.navbar-toggler {
+    background-color: #171a2d !important;
+    border-color: #ececec !important;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(202, 202, 202, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.userInfo  {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    width: 60%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 15px;
+}
+.userInfo a {
+    color: black !important;
+}
+.userInfo a:hover {
+    text-decoration: underline !important;
+}
+.userInfo img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+
+#overlayAccountDelete {
+    outline: solid 2px #171a2d;
+    display: none;
+}
+
+.userPosts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin: 10px;   
+    
+}
+.post-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    
+    
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 15px;
+    padding: 10px;   
+    
+}
+.post-container:hover {
+    opacity: 70%;
+}
+
+.deletePostButton:hover {
+    opacity: 80%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn.btn-primary {
+    background-color: #e55824 !important;
+    border-color: #e55824 !important;
+    color: white !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: #ce4e20 !important;
+    color: white !important;
+    opacity: 100% !important;
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 3em;
+        margin-bottom: 3rem;
+    }
+
+    .userInfo {
+        justify-content: center;
+        padding: 20px;
+        width: 100%;
+    }
+    
+    .buttons {
+        flex-direction: column; 
+    }
+}

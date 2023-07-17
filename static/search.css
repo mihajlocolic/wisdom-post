@@ -1,0 +1,101 @@
+body {
+    background-color: #FFFFFF; 
+    font-family: 'Segoe UI';
+}
+
+.offcanvas {
+    background-color: #171a2d !important;
+}
+.navbar-toggler {
+    background-color: #171a2d !important;
+    border-color: #ececec !important;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(202, 202, 202, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.btn.btn-primary {
+    background-color: #e55824 !important;
+    border-color: #e55824 !important;
+    color: white !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: #ce4e20 !important;
+    color: white !important;
+    opacity: 100% !important;
+}
+
+.navbar a {
+    color: white !important;
+    font-weight: 300;
+}
+.navbar a:hover {
+    text-decoration: underline !important;
+}
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 5rem;
+    
+
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #ececec;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 15px;
+    padding: 10px;   
+}
+.post:hover {
+    opacity: 80%;   
+}
+
+.pagination {
+    justify-content: center;
+}
+.pagination ul {
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.page-link {
+    color: black;
+}
+.page-link:hover {
+    color: #e98924;
+    opacity: 100%;
+}
+
+.page-item.active span {
+    background-color:#171a2d;
+    border-color:#171a2d;
+}
+
+
+@media screen and (max-width: 700px) {
+    main {
+        margin-top: 3em;
+        margin-bottom: 3rem;
+    }
+
+}

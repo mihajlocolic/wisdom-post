@@ -1,0 +1,97 @@
+body {
+    font-family: 'Segoe UI';
+    background-color: #e8f6ff;
+}
+li, a {
+    text-decoration: none !important ;
+    color: white !important; 
+    font-weight: 300 !important;
+}
+
+li:hover {
+    text-decoration: underline !important ;
+    color: rgb(196, 196, 196) !important;
+    opacity: 90% !important;
+}
+
+a:hover {
+    text-decoration: underline !important ;
+    color: rgb(196, 196, 196) !important;
+    opacity: 90% !important;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+/* Navbar stuff */
+.offcanvas {
+    background-color: #171a2d !important;
+}
+.navbar-toggler {
+    background-color: #171a2d !important;
+    border-color: #ececec !important;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(202, 202, 202, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.btn.btn-primary {
+    background-color: #e55824 !important;
+    border-color: #e55824 !important;
+    color: white !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: #ce4e20 !important;
+    color: white !important;
+    opacity: 100% !important;
+}
+
+.post-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px;   
+    white-space: break-spaces;
+    box-shadow: rgba(0, 0, 0, 0.16) 5px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.post-container a {
+    color: black !important;
+}
+.post-container a:hover {
+    text-decoration: underline !important;
+}
+
+.edit-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+
+
+
+@media screen and (max-width: 700px) {
+    main {
+        margin-top: 3em;
+        margin-bottom: 3rem;
+    }
+
+}

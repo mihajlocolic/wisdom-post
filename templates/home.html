@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block style %}<link rel="stylesheet" href="/static/home.css"> {% endblock %}
+
+{% block navbar %}
+    <nav class="navbar fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a class="navbar-brand" href="{% if is_logged_in %}{{ url_for('home') }}{% else %}{{ url_for('index')}}{% endif %}">
+                        <img src="/static/brain.svg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                        WisdomPost
+                    </a></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        {% if is_logged_in %}
+                        <li class="nav-item {{ 'active' if request.path == url_for('home') else '' }}">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                        </li>
+                        <form class="d-flex" role="search" action="/search" method="post">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchQuery" id="searchQuery" required>
+                        <button class="btn btn-primary" type="submit">Search</button>
+                        </form>
+                        <li class="nav-item {{ 'active' if request.path == url_for('create') else ''}}">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('create') }}">Create</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item {{ 'active' if request.path == url_for('profile') else '' }}">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('profile') }}">Profile</a>
+                        </li>
+                        <li class="nav-item {{ 'active' if request.path == url_for('logout') else '' }}">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('logout') }}">Log Out</a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item {{ 'active' if request.path == url_for('home') else '' }}">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                        </li>
+    
+                        <form class="d-flex" role="search" id="searchForm" action="/search" method="post">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchQuery" name="searchQuery" required>
+                        <button id="searchButton" class="btn btn-primary" type="submit">Search</button>
+                        </form>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item {{ 'active' if request.path == url_for('login') else '' }}">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item {{ 'active' if request.path == url_for('register') else '' }}">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('register') }}">Register</a>
+                        </li>
+                    </ul>    
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block header %}
+    <div class="header">
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }} 👋</div>
+        {% endfor %}
+</div>
+{% endblock %}
+
+{% block main %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+        $(document).ready(function() {
+            $('.post').click(function() {
+                let postId = $(this).attr('id').split('-')[1];
+                window.location.href = '/post/' + postId;
+            });
+            
+        });
+    </script>
+
+    <div class="center">
+        <div class="posts" id="paginated-post-list" aria-live="polite">
+            {% if posts %}
+            Latest posts
+            {% for post in posts %}
+                <div class="post" id="post-{{post.id}}">
+                    <div class="postInfo">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.content|safe|truncate(100) }}</p>
+                        <p style="font-style: italic;">Author: {{post.author}}</p>
+                        <p>Posted on {{ post.publication_date.strftime('%d/%m/%Y') }} at {{ post.publication_time }}</p> 
+                    </div>
+                    <div class="postCategory">
+                        <span class="category">{{post.category | capitalize}}</span>
+                    </div>   
+                </div>
+            {% endfor %}
+
+            
+            <div class="pagination">
+                <nav aria-label="posts-pagination">
+                    <ul class="pagination pagination-lg">
+                        {% if currentPage > 1 %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{currentPage - 1}}">Previous</a>
+                          </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                        {% endif %}
+                    {% for page in range(1, totalPages + 1) %}
+                        {% if page == currentPage %}
+                            <li class="page-item active" aria-current="page">
+                                <span class="page-link">{{ currentPage }}</span>
+                            </li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{page}}">{{ page }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if currentPage < totalPages and currentPage != totalPages %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{currentPage + 1}}">Next</a>
+                        </li>
+                    {% else %}
+                    <li class="page-item" disabled>
+                        <a class="page-link">Next</a>
+                    </li>
+                    {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            {% else %}
+                No posts yet.
+            {% endif %}
+        </div>
+        
+        
+
+        
+        
+        {% block aside %}
+        <div class="aside">
+            <div class="aside-content">
+                <h1>Categories</h1>
+                {% for category in categories %}
+                    <a href="category/{{category.category}}">{{category.category | capitalize}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+    </div>
+
+
+    
+{% endblock %}

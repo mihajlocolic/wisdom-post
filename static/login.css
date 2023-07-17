@@ -1,0 +1,78 @@
+body {
+    font-family: 'Segoe UI';
+    background-color: #e8f6ff;
+}
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 5rem;
+    
+    
+    font-size: 33px;
+    font-weight: 300;
+}
+
+
+/* Navbar stuff */
+.offcanvas {
+    background-color: #171a2d !important;
+}
+.navbar-toggler {
+    background-color: #171a2d !important;
+    border-color: #ececec !important;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(202, 202, 202, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.offcanvas li, a {
+    text-decoration: none !important ;
+    color: white !important; 
+    font-weight: 300 !important;
+}
+
+.offcanvas li:hover {
+    text-decoration: underline !important ;
+    color: rgb(196, 196, 196) !important;
+    opacity: 90% !important;
+}
+
+.offcanvas a:hover {
+    text-decoration: underline !important ;
+    color: rgb(196, 196, 196) !important;
+    opacity: 90% !important;
+}
+
+.btn.btn-primary {
+    background-color: #e55824 !important;
+    border-color: #e55824 !important;
+    color: white !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: #ce4e20 !important;
+    color: white !important;
+    opacity: 100% !important;
+}
+
+#loginError {
+    color: red;
+    
+    font-size: 25px;
+}
+
+@media screen and (max-width: 800px) {
+    main form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        width: fit-content;
+    }
+}
